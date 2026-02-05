@@ -8,17 +8,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box}
 body{
   margin:0;
   background:black;
   color:white;
-  font-family:'Cairo', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-family:'Cairo', sans-serif;
   text-align:center;
   overflow-x:hidden;
 }
 
-#login,#welcome,#content{
+section{
   min-height:100vh;
   display:flex;
   flex-direction:column;
@@ -27,55 +26,53 @@ body{
   padding:20px;
 }
 
-#welcome,#content{display:none}
+#welcome,#content,#question,#noMsg,#videoWrap,#lateMsg{
+  display:none;
+}
 
 input{
   padding:14px;
   font-size:18px;
-  border-radius:16px;
+  border-radius:14px;
   border:none;
   text-align:center;
 }
 
 button{
-  padding:12px 28px;
-  border-radius:20px;
-  border:none;
+  padding:12px 30px;
   font-size:18px;
-  font-weight:600;
+  border-radius:18px;
+  border:none;
   background:#ffb6c1;
-  margin:8px;
+  margin:10px;
 }
 
 .message{
   max-width:900px;
-  background:rgba(255,255,255,.08);
-  padding:25px;
-  border-radius:22px;
   line-height:2;
   font-size:18px;
+  background:rgba(255,255,255,0.07);
+  padding:25px;
+  border-radius:20px;
 }
 
-#choice{
-  display:none;
-  margin:30px 0;
-}
-
-.images{
+.gallery{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:15px;
-  margin-top:30px;
+  gap:10px;
+  margin-top:25px;
+  max-width:600px;
 }
-.images img{
+
+.gallery img{
   width:100%;
   border-radius:18px;
 }
 
-/* الهزة */
 .shake{
-  animation:shake .5s;
+  animation:shake 0.4s;
 }
+
 @keyframes shake{
   0%{transform:translateX(0)}
   25%{transform:translateX(-10px)}
@@ -84,91 +81,68 @@ button{
   100%{transform:translateX(0)}
 }
 
-/* الفيديو */
 #videoWrap{
-  display:none;
   position:fixed;
   inset:0;
   background:black;
   z-index:999;
 }
-#videoWrap video{
+
+video{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-/* رسالة No */
-#noMsg{
-  display:none;
+#lateMsg{
   position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:rgba(0,0,0,.9);
-  padding:30px;
-  border-radius:22px;
-  font-size:22px;
-  z-index:1000;
-}
-
-/* قلب */
-#heart{
-  display:none;
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  font-size:90px;
-  animation:break 1s forwards;
-  z-index:1000;
-}
-@keyframes break{
-  0%{transform:translate(-50%,-50%) scale(1)}
-  100%{transform:translate(-50%,-50%) scale(0);opacity:0}
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:26px;
+  background:rgba(0,0,0,0.85);
+  z-index:50;
 }
 </style>
 </head>
 
 <body>
 
-<!-- الأغنية -->
 <audio id="song" loop>
   <source src="song.mp3" type="audio/mpeg">
 </audio>
 
-<div id="login">
+<section id="login">
   <h2>اكتب تاريخ عيد ميلادي 🥺💍</h2>
   <input type="password" id="password">
   <button onclick="check()">دخول 💘</button>
-</div>
+</section>
 
-<div id="welcome">
-  الكلام ده من قلبي والله وعايزاك تعرف اني بحبك اوي  
-  وانك وحشتني جدا  
-  وحقيقي بعدك صعب عليا لاني بحبك اكتر من نفسي 🥺💍  
+<section id="welcome">
+  الكلام ده من قلبي والله وعايزاك تعرف إني بحبك أوي  
+  وإنك وحشتني جدًا  
+  وحقيقي بعدك صعب عليا لأني بحبك أكتر من نفسي 🥺💍  
   <br><br>
   استمتع 😍💍
-</div>
+</section>
 
-<div id="content">
+<section id="content">
 
 <h1>𝑬𝑳 𝒁𝑶𝒁 💘 𝑬𝑳 𝒀𝒂𝒔𝒐</h1>
 
 <div class="message">
-عيد حب سعيد يحبيبى 🥹❤️‍🩹،<br><br>
+عيد حب سعيد يحبيبى🥹❤️‍🩹،<br><br>
 
 مش عارفه ابدأ منين ولا ارتب الكلام إزاى،<br>
-بس ال متأكدة منه إنك أحلى حاجه حصلتلى ف حياتى،<br>
-وجودك جنبى لوحده كفايه يخلينى احس إنى بخير حتى فى الايام ال الدنيا فيها تقيلة عليا.<br>
-من اول م دخلت حياتى وانا حاسة ان فى حاجه اتظبطت جوايا،<br>
-إن فى حد بقى فارق معاه اضحك ولا ازعل افرح ولا اتعب 🥹💕💋✨<br><br>
+بس ال متأكدة منه إنك أحلى حاجه حصلتلى ف حياتى، وجودك جنبى لوحده كفايه يخلينى احس إنى بخير حتى فى الايام ال الدنيا فيها تقيلة عليا<br>
+من اول م دخلت حياتى وانا حاسة ان فى حاجه اتظبطت جوايا ان فى حد بقى فارق معاه اضحك ولا ازعل افرح ولا اتعب🥹💕💋✨<br><br>
 
 بحبك بطريقة بسيطة اوى من غير تكاليف بس من جوا قلبى  
 بحبك ف تفاصيلك الصغيرة ال يمكن انت ماتاخدش بالك منها  
 فى كلامك فى طريقتك فى اهتمامك وحتى فى لحظات سكوتك  
 بحبك لما تطمنى ولما تقلق عليا 🫀🫶  
-ولما تحاول حتى لو تعبان 🥹❤️‍🩹<br><br>
+ولما تحاول حتى لو تعبان🥹❤️‍🩹<br><br>
 
 بحب احساسى وانا بكلمك وبحب الامان ال بحسه لما تبقى موجود  
 كإنى فى حته آمنه مهما كانت الدنيا برا عامله ازاى  
@@ -198,93 +172,88 @@ button{
 كل سنه وانت الشخص ال قلبى اختاره من غير ما يفكر  
 وكل سنه وانت اقرب حد لقلبى واغلى حاجه عندى 💘✨<br><br>
 
-كل سنه وانا بحبك ي زوز ❤🥹💍<br><br>
-
-<b style="font-size:22px;">بحبك ❤💍</b>
+كل سنه وانا بحبك ي زوز ❤🥹💍  
+<br><br>
+بحبك ❤💍
 </div>
 
-<div id="choice">
-  <h3>لسه بتحبني؟ 🥺❤️‍🩹</h3>
-  <button onclick="yes()">Yes 💘</button>
-  <button onclick="no()">No 💔</button>
-</div>
-
-<div class="images">
+<div class="gallery">
   <img src="1.jpg">
   <img src="2.jpg">
   <img src="3.jpg">
   <img src="4.jpg">
 </div>
 
-</div>
+</section>
 
-<!-- الفيديو -->
+<section id="question">
+  <h2>لسه بتحبني؟ 🥺❤️‍🩹</h2>
+  <button onclick="yes()">Yes</button>
+  <button onclick="no()">No</button>
+</section>
+
+<section id="noMsg">
+  <div class="message">
+    بس أنا لسه بحبك 🥺❤️‍🩹<br><br>💔
+  </div>
+</section>
+
+<div id="lateMsg">لسه؟ أنا لسه بحبك ❤️‍🩹</div>
+
 <div id="videoWrap">
   <video id="video" src="video.mp4" muted playsinline></video>
 </div>
 
-<div id="noMsg">بس انا لسه بحبك 🥺❤️‍🩹</div>
-<div id="heart">💔</div>
-
 <script>
 function check(){
   if(password.value==="7/7"){
-    document.getElementById("song").play();
-
+    song.play();
     login.style.display="none";
     welcome.style.display="flex";
 
     setTimeout(()=>{
       welcome.style.display="none";
       content.style.display="flex";
-      setTimeout(()=>{choice.style.display="block"},40000);
+
+      setTimeout(()=>{
+        lateMsg.style.display="flex";
+        setTimeout(()=>lateMsg.style.display="none",5000);
+      },30000);
+
+      setTimeout(()=>{
+        question.style.display="flex";
+      },40000);
+
     },5000);
+  }else{
+    alert("غلط يحبيبي ركز شويه 🥺❤️");
   }
 }
 
 function yes(){
   document.body.classList.add("shake");
-
-  setTimeout(()=>{
+  setTimeout(async ()=>{
     document.body.classList.remove("shake");
-
-    const v = document.getElementById("video");
-    const w = document.getElementById("videoWrap");
-
-    w.style.display="block";
-
-    if(v.requestFullscreen){
-      v.requestFullscreen();
-    }else if(v.webkitRequestFullscreen){
-      v.webkitRequestFullscreen();
-    }
-
-    v.currentTime = 0;
-    v.play();
-
+    videoWrap.style.display="block";
+    await video.play();
+    video.requestFullscreen?.();
   },600);
 }
 
-let count=0;
+let times=0;
 video.onended=()=>{
-  count++;
-  if(count<2){
+  times++;
+  if(times<2){
     video.play();
   }else{
-    if(document.fullscreenElement){
-      document.exitFullscreen();
-    }
+    document.exitFullscreen?.();
     videoWrap.style.display="none";
   }
 }
 
 function no(){
-  noMsg.style.display="block";
-  setTimeout(()=>{
-    noMsg.style.display="none";
-    heart.style.display="block";
-    setTimeout(()=>{heart.style.display="none"},1000);
-  },3000);
+  question.style.display="none";
+  noMsg.style.display="flex";
 }
 </script>
 
