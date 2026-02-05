@@ -72,7 +72,7 @@ button{
   border-radius:18px;
 }
 
-/* اهتزاز */
+/* الهزة */
 .shake{
   animation:shake .5s;
 }
@@ -84,7 +84,7 @@ button{
   100%{transform:translateX(0)}
 }
 
-/* فيديو */
+/* الفيديو */
 #videoWrap{
   display:none;
   position:fixed;
@@ -98,7 +98,7 @@ button{
   object-fit:cover;
 }
 
-/* No */
+/* رسالة No */
 #noMsg{
   display:none;
   position:fixed;
@@ -132,6 +132,11 @@ button{
 
 <body>
 
+<!-- الأغنية -->
+<audio id="song" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
 <div id="login">
   <h2>اكتب تاريخ عيد ميلادي 🥺💍</h2>
   <input type="password" id="password">
@@ -149,10 +154,6 @@ button{
 <div id="content">
 
 <h1>𝑬𝑳 𝒁𝑶𝒁 💘 𝑬𝑳 𝒀𝒂𝒔𝒐</h1>
-
-<audio autoplay>
-  <source src="song.mp3">
-</audio>
 
 <div class="message">
 عيد حب سعيد يحبيبى 🥹❤️‍🩹،<br><br>
@@ -217,8 +218,9 @@ button{
 
 </div>
 
+<!-- الفيديو -->
 <div id="videoWrap">
-  <video id="video" src="video.mp4"></video>
+  <video id="video" src="video.mp4" muted playsinline></video>
 </div>
 
 <div id="noMsg">بس انا لسه بحبك 🥺❤️‍🩹</div>
@@ -227,8 +229,11 @@ button{
 <script>
 function check(){
   if(password.value==="7/7"){
+    document.getElementById("song").play();
+
     login.style.display="none";
     welcome.style.display="flex";
+
     setTimeout(()=>{
       welcome.style.display="none";
       content.style.display="flex";
@@ -239,11 +244,25 @@ function check(){
 
 function yes(){
   document.body.classList.add("shake");
+
   setTimeout(()=>{
     document.body.classList.remove("shake");
-    videoWrap.style.display="block";
-    video.play();
-  },500);
+
+    const v = document.getElementById("video");
+    const w = document.getElementById("videoWrap");
+
+    w.style.display="block";
+
+    if(v.requestFullscreen){
+      v.requestFullscreen();
+    }else if(v.webkitRequestFullscreen){
+      v.webkitRequestFullscreen();
+    }
+
+    v.currentTime = 0;
+    v.play();
+
+  },600);
 }
 
 let count=0;
@@ -252,6 +271,9 @@ video.onended=()=>{
   if(count<2){
     video.play();
   }else{
+    if(document.fullscreenElement){
+      document.exitFullscreen();
+    }
     videoWrap.style.display="none";
   }
 }
