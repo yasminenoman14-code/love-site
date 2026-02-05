@@ -141,10 +141,13 @@ audio {
 
 <script>
 function check() {
-  const p = document.getElementById("password").value;
+  const p = document.getElementById("password").value.trim();
+
   if (p === "7/7") {
-    document.getElementById("login").style.display = "none";
-    document.getElementById("content").style.display = "block";
+    document.getElementById("login").remove();
+    const content = document.getElementById("content");
+    content.style.display = "block";
+    content.style.visibility = "visible";
   } else {
     alert("غلط يا حبيبي ركز شوية 🥺❤️");
   }
@@ -153,3 +156,4 @@ function check() {
 
 </body>
 </html>
+
