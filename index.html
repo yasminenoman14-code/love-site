@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EL ZOZ 💘 EL Yaso</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
-
 <style>
 body{
   margin:0;
   background:black;
   color:white;
-  font-family:'Cairo', sans-serif;
+  font-family:-apple-system, BlinkMacSystemFont, "San Francisco",
+               "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align:center;
 }
 
+/* الصفحات */
 #login, #welcome, #content{
   min-height:100vh;
   display:flex;
@@ -29,27 +29,37 @@ body{
   display:none;
 }
 
+/* input */
 input{
-  padding:12px;
+  padding:14px;
   font-size:18px;
-  border-radius:12px;
+  border-radius:14px;
   border:none;
   text-align:center;
+  outline:none;
 }
 
+/* زرار آيفون */
 button{
-  margin-top:15px;
-  padding:10px 25px;
+  margin-top:18px;
+  padding:14px 32px;
   font-size:18px;
-  border-radius:15px;
+  font-weight:600;
+  border-radius:25px;
   border:none;
-  background:pink;
+  background: linear-gradient(135deg, #ff5fa2, #ff8fc7);
+  color:white;
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.45);
+  cursor:pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-h1{
-  margin-bottom:20px;
+button:active{
+  transform: scale(0.95);
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
 }
 
+/* رسالة */
 .message{
   max-width:900px;
   line-height:2;
@@ -57,12 +67,14 @@ h1{
   margin-top:20px;
 }
 
+/* صور */
 img{
   width:220px;
   margin:10px;
   border-radius:20px;
 }
 
+/* صوت */
 audio{
   margin:20px 0;
 }
@@ -92,7 +104,7 @@ audio{
 
 <h1>𝑬𝑳 𝒁𝑶𝒁 💘 𝑬𝑳 𝒀𝒂𝒔𝒐</h1>
 
-<audio controls autoplay>
+<audio id="song" controls>
   <source src="song.mp3" type="audio/mpeg">
 </audio>
 
@@ -137,7 +149,7 @@ audio{
 كل سنه وانت الشخص ال قلبى اختاره من غير ما يفكر  
 وكل سنه وانت اقرب حد لقلبى واغلى حاجه عندى 💘✨<br><br>
 
-كل سنه وانا بحبك ي زوز ❤🥹💍  ، 
+كل سنه وانا بحبك ي زوز ❤🥹💍  
 بحبك 💍❤
 </div>
 
@@ -154,10 +166,13 @@ function check(){
   if(p === "7/7"){
     document.getElementById("login").style.display="none";
     document.getElementById("welcome").style.display="flex";
+
     setTimeout(()=>{
       document.getElementById("welcome").style.display="none";
       document.getElementById("content").style.display="flex";
+      document.getElementById("song").play();
     },5000);
+
   }else{
     alert("غلط يحبيبي ركز شويه🥺❤️");
   }
@@ -166,5 +181,3 @@ function check(){
 
 </body>
 </html>
-
-
