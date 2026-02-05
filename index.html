@@ -58,14 +58,34 @@ button{
 }
 button:active{transform:scale(.95);}
 
-/* كارت */
+/* كارت + الفيونكة */
 .card{
+  position:relative;
   background:rgba(255,255,255,.08);
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
   border-radius:25px;
   padding:25px;
   max-width:900px;
   margin:20px auto;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.45);
+}
+
+/* لمعة من فوق الشمال */
+.card::before{
+  content:"";
+  position:absolute;
+  top:-60px;
+  left:-60px;
+  width:220px;
+  height:220px;
+  background:radial-gradient(
+    circle,
+    rgba(255,180,220,.45),
+    transparent 70%
+  );
+  pointer-events:none;
 }
 
 /* رسالة */
@@ -155,7 +175,7 @@ img{
 
 كل سنه وانا بحبك ي زوز ❤🥹💍  
 <br><br>
-<span style="font-size:22px; font-weight:600;">بحبك ❤💍</span>
+<span style="font-size:22px;font-weight:600;">بحبك ❤💍</span>
 </div>
 
 <img src="1.jpg">
