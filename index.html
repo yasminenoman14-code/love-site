@@ -5,21 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EL ZOZ 💘 EL Yaso</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
+*{box-sizing:border-box}
 body{
   margin:0;
-  min-height:100vh;
-  background: radial-gradient(circle at top, #1a1a1a, #000);
+  background:black;
   color:white;
-  font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue",
-               Helvetica, Arial, sans-serif;
+  font-family:'Cairo', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   text-align:center;
-}
-
-.fade{animation:fadeIn 1.5s ease;}
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(15px);}
-  to{opacity:1; transform:translateY(0);}
+  overflow-x:hidden;
 }
 
 #login,#welcome,#content{
@@ -30,103 +26,148 @@ body{
   align-items:center;
   padding:20px;
 }
-#welcome,#content{display:none;}
+
+#welcome,#content{display:none}
 
 input{
   padding:14px;
   font-size:18px;
-  border-radius:14px;
+  border-radius:16px;
   border:none;
   text-align:center;
 }
 
 button{
-  padding:14px 32px;
+  padding:12px 28px;
+  border-radius:20px;
+  border:none;
   font-size:18px;
   font-weight:600;
-  border-radius:25px;
-  border:none;
-  cursor:pointer;
-  margin:10px;
-}
-
-.btn-yes{
-  background:linear-gradient(135deg,#ff5fa2,#ff8fc7);
-  color:white;
-}
-
-.btn-no{
-  background:#333;
-  color:white;
-}
-
-.card{
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(14px);
-  border-radius:25px;
-  padding:25px;
-  max-width:900px;
-  margin:20px auto;
+  background:#ffb6c1;
+  margin:8px;
 }
 
 .message{
+  max-width:900px;
+  background:rgba(255,255,255,.08);
+  padding:25px;
+  border-radius:22px;
   line-height:2;
   font-size:18px;
 }
 
-#question{display:none;margin-top:30px;}
-#noMessage{display:none;font-size:22px;font-weight:600;color:#ffb6d5;}
+#choice{
+  display:none;
+  margin:30px 0;
+}
 
-video{
+.images{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-top:30px;
+}
+.images img{
+  width:100%;
+  border-radius:18px;
+}
+
+/* اهتزاز */
+.shake{
+  animation:shake .5s;
+}
+@keyframes shake{
+  0%{transform:translateX(0)}
+  25%{transform:translateX(-10px)}
+  50%{transform:translateX(10px)}
+  75%{transform:translateX(-10px)}
+  100%{transform:translateX(0)}
+}
+
+/* فيديو */
+#videoWrap{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:black;
+  z-index:999;
+}
+#videoWrap video{
   width:100%;
   height:100%;
   object-fit:cover;
+}
+
+/* No */
+#noMsg{
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(0,0,0,.9);
+  padding:30px;
+  border-radius:22px;
+  font-size:22px;
+  z-index:1000;
+}
+
+/* قلب */
+#heart{
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:90px;
+  animation:break 1s forwards;
+  z-index:1000;
+}
+@keyframes break{
+  0%{transform:translate(-50%,-50%) scale(1)}
+  100%{transform:translate(-50%,-50%) scale(0);opacity:0}
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<div id="login" class="fade">
+<div id="login">
   <h2>اكتب تاريخ عيد ميلادي 🥺💍</h2>
   <input type="password" id="password">
+  <button onclick="check()">دخول 💘</button>
+</div>
+
+<div id="welcome">
+  الكلام ده من قلبي والله وعايزاك تعرف اني بحبك اوي  
+  وانك وحشتني جدا  
+  وحقيقي بعدك صعب عليا لاني بحبك اكتر من نفسي 🥺💍  
   <br><br>
-  <button class="btn-yes" onclick="check()">دخول 💘</button>
+  استمتع 😍💍
 </div>
 
-<!-- WELCOME -->
-<div id="welcome" class="fade">
-  <div class="card">
-    الكلام ده من قلبي والله وعايزاك تعرف اني بحبك اوي  
-    وانك وحشتني جدا  
-    وحقيقي بعدك صعب عليا لاني بحبك اكتر من نفسي 🥺💍  
-    <br><br>
-    استمتع 😍💍
-  </div>
-</div>
-
-<!-- CONTENT -->
-<div id="content" class="fade">
+<div id="content">
 
 <h1>𝑬𝑳 𝒁𝑶𝒁 💘 𝑬𝑳 𝒀𝒂𝒔𝒐</h1>
 
-<audio id="song" controls>
-  <source src="song.mp3" type="audio/mpeg">
+<audio autoplay>
+  <source src="song.mp3">
 </audio>
 
-<div class="card message">
-عيد حب سعيد يحبيبى🥹❤️‍🩹،<br><br>
+<div class="message">
+عيد حب سعيد يحبيبى 🥹❤️‍🩹،<br><br>
 
 مش عارفه ابدأ منين ولا ارتب الكلام إزاى،<br>
-بس ال متأكدة منه إنك أحلى حاجه حصلتلى ف حياتى، وجودك جنبى لوحده كفايه يخلينى احس إنى بخير حتى فى الايام ال الدنيا فيها تقيلة عليا<br>
-من اول م دخلت حياتى وانا حاسة ان فى حاجه اتظبطت جوايا ان فى حد بقى فارق معاه اضحك ولا ازعل افرح ولا اتعب🥹💕💋✨<br><br>
+بس ال متأكدة منه إنك أحلى حاجه حصلتلى ف حياتى،<br>
+وجودك جنبى لوحده كفايه يخلينى احس إنى بخير حتى فى الايام ال الدنيا فيها تقيلة عليا.<br>
+من اول م دخلت حياتى وانا حاسة ان فى حاجه اتظبطت جوايا،<br>
+إن فى حد بقى فارق معاه اضحك ولا ازعل افرح ولا اتعب 🥹💕💋✨<br><br>
 
 بحبك بطريقة بسيطة اوى من غير تكاليف بس من جوا قلبى  
 بحبك ف تفاصيلك الصغيرة ال يمكن انت ماتاخدش بالك منها  
 فى كلامك فى طريقتك فى اهتمامك وحتى فى لحظات سكوتك  
 بحبك لما تطمنى ولما تقلق عليا 🫀🫶  
-ولما تحاول حتى لو تعبان🥹❤️‍🩹<br><br>
+ولما تحاول حتى لو تعبان 🥹❤️‍🩹<br><br>
 
 بحب احساسى وانا بكلمك وبحب الامان ال بحسه لما تبقى موجود  
 كإنى فى حته آمنه مهما كانت الدنيا برا عامله ازاى  
@@ -156,58 +197,72 @@ video{
 كل سنه وانت الشخص ال قلبى اختاره من غير ما يفكر  
 وكل سنه وانت اقرب حد لقلبى واغلى حاجه عندى 💘✨<br><br>
 
-كل سنه وانا بحبك ي زوز ❤🥹💍  
-<br><br>
-<span style="font-size:22px;font-weight:600;">بحبك ❤💍</span>
+كل سنه وانا بحبك ي زوز ❤🥹💍<br><br>
+
+<b style="font-size:22px;">بحبك ❤💍</b>
 </div>
 
-<!-- QUESTION -->
-<div id="question" class="fade">
-  <h2>لسه بتحبني؟ 🥺💘</h2>
-  <button class="btn-yes" onclick="yesAnswer()">Yes</button>
-  <button class="btn-no" onclick="noAnswer()">No</button>
+<div id="choice">
+  <h3>لسه بتحبني؟ 🥺❤️‍🩹</h3>
+  <button onclick="yes()">Yes 💘</button>
+  <button onclick="no()">No 💔</button>
 </div>
 
-<!-- NO MESSAGE -->
-<div id="noMessage" class="card fade">
-  انا لسه بحبك 🥺❤️‍🩹
+<div class="images">
+  <img src="1.jpg">
+  <img src="2.jpg">
+  <img src="3.jpg">
+  <img src="4.jpg">
 </div>
 
 </div>
+
+<div id="videoWrap">
+  <video id="video" src="video.mp4"></video>
+</div>
+
+<div id="noMsg">بس انا لسه بحبك 🥺❤️‍🩹</div>
+<div id="heart">💔</div>
 
 <script>
 function check(){
   if(password.value==="7/7"){
     login.style.display="none";
     welcome.style.display="flex";
-
     setTimeout(()=>{
       welcome.style.display="none";
       content.style.display="flex";
-      song.play();
-
-      setTimeout(()=>{
-        question.style.display="block";
-      },20000);
-
+      setTimeout(()=>{choice.style.display="block"},40000);
     },5000);
-  }else{
-    alert("غلط يحبيبي ركز شويه🥺❤️");
   }
 }
 
-function yesAnswer(){
-  const video = document.createElement("video");
-  video.src = "myvideo.mp4";
-  video.controls = true;
-  video.autoplay = true;
-  document.body.innerHTML = "";
-  document.body.appendChild(video);
-  video.requestFullscreen();
+function yes(){
+  document.body.classList.add("shake");
+  setTimeout(()=>{
+    document.body.classList.remove("shake");
+    videoWrap.style.display="block";
+    video.play();
+  },500);
 }
 
-function noAnswer(){
-  noMessage.style.display="block";
+let count=0;
+video.onended=()=>{
+  count++;
+  if(count<2){
+    video.play();
+  }else{
+    videoWrap.style.display="none";
+  }
+}
+
+function no(){
+  noMsg.style.display="block";
+  setTimeout(()=>{
+    noMsg.style.display="none";
+    heart.style.display="block";
+    setTimeout(()=>{heart.style.display="none"},1000);
+  },3000);
 }
 </script>
 
