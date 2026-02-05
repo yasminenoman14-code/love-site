@@ -11,8 +11,8 @@ body{
   min-height:100vh;
   background: radial-gradient(circle at top, #1a1a1a, #000);
   color:white;
-  font-family:-apple-system, BlinkMacSystemFont, "San Francisco",
-               "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue",
+               Helvetica, Arial, sans-serif;
   text-align:center;
 }
 
@@ -41,65 +41,61 @@ input{
 }
 
 button{
-  margin-top:18px;
   padding:14px 32px;
   font-size:18px;
   font-weight:600;
   border-radius:25px;
   border:none;
+  cursor:pointer;
+  margin:10px;
+}
+
+.btn-yes{
   background:linear-gradient(135deg,#ff5fa2,#ff8fc7);
   color:white;
-  box-shadow:0 8px 20px rgba(255,105,180,.45);
 }
-button:active{transform:scale(.95);}
+
+.btn-no{
+  background:#333;
+  color:white;
+}
 
 .card{
-  position:relative;
   background:rgba(255,255,255,.08);
   backdrop-filter:blur(14px);
   border-radius:25px;
   padding:25px;
   max-width:900px;
   margin:20px auto;
-  overflow:hidden;
 }
 
-.card::before{
-  content:"";
-  position:absolute;
-  top:-60px;
-  left:-60px;
-  width:220px;
-  height:220px;
-  background:radial-gradient(circle, rgba(255,180,220,.45), transparent 70%);
+.message{
+  line-height:2;
+  font-size:18px;
 }
 
-.message{line-height:2;font-size:18px;}
+#question{display:none;margin-top:30px;}
+#noMessage{display:none;font-size:22px;font-weight:600;color:#ffb6d5;}
 
-#surprise{
-  display:none;
-  margin-top:25px;
-  font-size:20px;
-  font-weight:600;
-  color:#ffb6d5;
-}
-
-img{
-  width:220px;
-  margin:10px;
-  border-radius:20px;
+video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 </style>
 </head>
 
 <body>
 
+<!-- LOGIN -->
 <div id="login" class="fade">
   <h2>اكتب تاريخ عيد ميلادي 🥺💍</h2>
   <input type="password" id="password">
-  <button onclick="check()">دخول 💘</button>
+  <br><br>
+  <button class="btn-yes" onclick="check()">دخول 💘</button>
 </div>
 
+<!-- WELCOME -->
 <div id="welcome" class="fade">
   <div class="card">
     الكلام ده من قلبي والله وعايزاك تعرف اني بحبك اوي  
@@ -110,6 +106,7 @@ img{
   </div>
 </div>
 
+<!-- CONTENT -->
 <div id="content" class="fade">
 
 <h1>𝑬𝑳 𝒁𝑶𝒁 💘 𝑬𝑳 𝒀𝒂𝒔𝒐</h1>
@@ -126,37 +123,55 @@ img{
 من اول م دخلت حياتى وانا حاسة ان فى حاجه اتظبطت جوايا ان فى حد بقى فارق معاه اضحك ولا ازعل افرح ولا اتعب🥹💕💋✨<br><br>
 
 بحبك بطريقة بسيطة اوى من غير تكاليف بس من جوا قلبى  
-بحبك ف تفاصيلك الصغيرة  
+بحبك ف تفاصيلك الصغيرة ال يمكن انت ماتاخدش بالك منها  
 فى كلامك فى طريقتك فى اهتمامك وحتى فى لحظات سكوتك  
 بحبك لما تطمنى ولما تقلق عليا 🫀🫶  
 ولما تحاول حتى لو تعبان🥹❤️‍🩹<br><br>
 
 بحب احساسى وانا بكلمك وبحب الامان ال بحسه لما تبقى موجود  
 كإنى فى حته آمنه مهما كانت الدنيا برا عامله ازاى  
+يمكن ما بكونش دايما بعرف اعبر عن ال جوايا  
+ويمكن ساعات اتلخبط ف كلامى  
 بس صدقنى احساسى ناحيتك حقيقى اوى ❤💍<br><br>
 
-انت حد فارق  
+انت مش شخص عادى ف حياتى  
+انت حد فارق حد بقيت ادعيله من قلبى 😍🔥🔥🔥✨  
 واخاف عليه وافرح لفرحه كأنها فرحتى  
-واسمك بييجى فى المستقبل لوحده ❤️‍🔥💕✨<br><br>
+بقيت لما افكر فى المستقبل اسمك بييجى لوحده من غير ما استدعيه ❤️‍🔥💕✨<br><br>
 
-فى عيد الحب ده  
-انا عايزة وجودك  
-نطبطب على بعض من الدنيا  
-مش نزودها علينا 🥹💍<br><br>
+بحبك عشان بتخلينى احس ان انا مهمه  
+انى متشافه انى ليا مكانه  
+بحبك عشان معاك بكون على طبيعتى من غير ما اتصنع ولا اغير نفسى  
+بحبك عشان حتى زعلك عليا بحسه حب وحتى خوفك بحسه امان  
+ومع كل مرة بتقفل او تبعد قلبى بيفضل مطمن انك راجع  
+لان اللى بينا اكبر من اى بعد 😻🌏💕<br><br>
 
-كل سنه وانت اقرب حد لقلبى 💘✨<br><br>
+فى عيد الحب ده انا مش عايزة وعود كبيرة ولا كلام مثالى  
+انا عايزة وجودك عايزة نكمل سوا نضحك سوا ونعدى اى حاجه وايدينا فى ايد بعض  
+عايزة افضل دايما احس ان فى حد سندى وانا سنده 🥹💍<br><br>
+
+اننا نطبطب على بعض من الدنيا مش نزودها علينا  
+كل سنه وإنت حبى وامانى ووجع قلبى الحلو 🤝🙈✨<br><br>
+
+كل سنه وانت الشخص ال قلبى اختاره من غير ما يفكر  
+وكل سنه وانت اقرب حد لقلبى واغلى حاجه عندى 💘✨<br><br>
 
 كل سنه وانا بحبك ي زوز ❤🥹💍  
 <br><br>
 <span style="font-size:22px;font-weight:600;">بحبك ❤💍</span>
-
-<div id="surprise">لسه؟… أنا لسه بحبك أكتر 💘</div>
 </div>
 
-<img src="1.jpg">
-<img src="2.jpg">
-<img src="3.jpg">
-<img src="4.jpg">
+<!-- QUESTION -->
+<div id="question" class="fade">
+  <h2>لسه بتحبني؟ 🥺💘</h2>
+  <button class="btn-yes" onclick="yesAnswer()">Yes</button>
+  <button class="btn-no" onclick="noAnswer()">No</button>
+</div>
+
+<!-- NO MESSAGE -->
+<div id="noMessage" class="card fade">
+  انا لسه بحبك 🥺❤️‍🩹
+</div>
 
 </div>
 
@@ -165,22 +180,34 @@ function check(){
   if(password.value==="7/7"){
     login.style.display="none";
     welcome.style.display="flex";
+
     setTimeout(()=>{
       welcome.style.display="none";
       content.style.display="flex";
       song.play();
 
       setTimeout(()=>{
-        surprise.style.display="block";
-        setTimeout(()=>{
-          surprise.style.display="none";
-        },4000);
-      },6000);
+        question.style.display="block";
+      },20000);
 
     },5000);
   }else{
     alert("غلط يحبيبي ركز شويه🥺❤️");
   }
+}
+
+function yesAnswer(){
+  const video = document.createElement("video");
+  video.src = "myvideo.mp4";
+  video.controls = true;
+  video.autoplay = true;
+  document.body.innerHTML = "";
+  document.body.appendChild(video);
+  video.requestFullscreen();
+}
+
+function noAnswer(){
+  noMessage.style.display="block";
 }
 </script>
 
